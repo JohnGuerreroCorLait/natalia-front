@@ -1,0 +1,74 @@
+<img src="assets/lait.svg" alt="LAIT" class="img-flotante">
+<div class="container mt-5">
+  <div #container class="canvas-container">
+    <canvas></canvas>
+  </div>
+  <br /><br />
+  <div class="row mt-5">
+    <div class="col text-center mt-4">
+      <img
+        *ngIf="ocultar"
+        (click)="llamar()"
+        [ngClass]="{ 'iluminado': iluminado }"
+        src="assets/boton.svg"
+        alt="Llamar"
+        style="cursor: pointer; height: 150px; width: 150px"
+      />
+      <img
+        *ngIf="!ocultar"
+        [ngClass]="{ 'iluminado': iluminado }"
+        src="assets/boton.svg"
+        style="height: 150px; width: 150px"
+      />
+    </div>
+  </div>
+  <!-- Historial de mensajes-->
+  <div
+    #chatBox
+    class="chat-box"
+    style="
+      max-height: 220px; /* Altura máxima */
+      overflow-y: auto; /* Habilitar scroll vertical */
+      overflow-x: hidden; /* Ocultar scroll horizontal */
+      border-radius: 15px; /* Bordes redondeados */
+      background: rgba(0, 0, 0, 0); /* Fondo transparente */
+      padding: 15px; /* Espaciado interno */
+      scrollbar-width: thin; /* Hacer el scrollbar más delgado */
+      scrollbar-color: #666 #333; /* Color del thumb y del track */
+    "
+  >
+    <div
+      *ngFor="let message of messages"
+      class="chat-message animate__animated animate__fadeIn"
+    >
+      <div [class]="message.sender === 'user' ? 'text-start' : 'text-start'">
+        <div
+          [class]="
+            message.sender === 'user'
+              ? 'text-white p-2 rounded'
+              : 'text-white p-2 rounded'
+          "
+        >
+          <!-- Mensaje del usuario -->
+          <p *ngIf="message.sender === 'user'" class="m-0">
+            <i class="fa-regular fa-circle fa-2xs"></i> Usuario: <br />
+            <span class="ms-2">{{ message.content }}</span>
+          </p>
+          <!-- Mensaje del asistente -->
+          <p *ngIf="message.sender !== 'user'" style="margin-bottom: 0">
+            <span style="color: chartreuse"
+              ><i class="fa-regular fa-circle fa-2xs"></i
+            ></span>
+            Natalia: <br />
+          </p>
+          <p
+            *ngIf="message.sender !== 'user'"
+            class="ms-2"
+            [innerHTML]="message.formattedContent"
+          ></p>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

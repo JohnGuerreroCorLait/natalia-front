@@ -1,0 +1,93 @@
+<img src="assets/lait.svg" alt="LAIT" class="img-flotante" />
+<div class="container mt-5" (mouseleave)="desactivarAnimacion()">
+  <div #container class="canvas-container">
+    <canvas></canvas>
+  </div>
+  <div
+    class="row"
+    style="
+      height: 35vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0;
+    "
+  >
+    <div class="col text-center mt-2">
+      <img
+        (mouseenter)="activarAnimacion()"
+        *ngIf="ocultar"
+        (click)="llamar()"
+        src="assets/boton.svg"
+        alt="Llamar"
+        class="iluminado"
+        style="cursor: pointer; height: 150px; width: 150px"
+      />
+
+      <!-- SVG animado que se muestra al hacer hover -->
+    <!--   <svg
+        *ngIf="mostrarAnimacion && ocultar"
+        width="65"
+        height="120"
+        (click)="llamar()"
+        viewBox="0 0 120 120"
+        class="svg-container"
+      >
+        <circle class="circle" cx="60" cy="60" r="50"></circle>
+      </svg> -->
+      <img
+        *ngIf="!ocultar"
+        [ngClass]="{ iluminado: iluminado }"
+        src="assets/boton.svg"
+        style="height: 150px; width: 150px"
+      />
+    </div>
+  </div>
+  <!-- Historial de mensajes-->
+  <div
+    #chatBox
+    class="chat-box"
+    style="
+      max-height: 200px; /* Altura máxima */
+      overflow-y: auto; /* Habilitar scroll vertical */
+      overflow-x: hidden; /* Ocultar scroll horizontal */
+      background: rgba(0, 0, 0, 0); /* Fondo transparente */
+      scrollbar-width: thin; /* Hacer el scrollbar más delgado */
+      scrollbar-color: #666 #333; /* Color del thumb y del track */
+    "
+  >
+    <div
+      *ngFor="let message of messages"
+      class="chat-message animate__animated animate__fadeIn"
+    >
+      <div [class]="message.sender === 'user' ? 'text-start' : 'text-start'">
+        <div
+          [class]="
+            message.sender === 'user'
+              ? 'text-white p-2 rounded'
+              : 'text-white p-2 rounded'
+          "
+        >
+          <!-- Mensaje del usuario -->
+          <p *ngIf="message.sender === 'user'" class="m-0">
+            <i class="fa-regular fa-circle fa-2xs"></i> Usuario: <br />
+            <span class="ms-2">{{ message.content }}</span>
+          </p>
+          <!-- Mensaje del asistente -->
+          <p *ngIf="message.sender !== 'user'" style="margin-bottom: 0">
+            <span style="color: chartreuse"
+              ><i class="fa-regular fa-circle fa-2xs"></i
+            ></span>
+            Natalia: <br />
+          </p>
+          <p
+            *ngIf="message.sender !== 'user'"
+            class="ms-2"
+            [innerHTML]="message.formattedContent"
+          ></p>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

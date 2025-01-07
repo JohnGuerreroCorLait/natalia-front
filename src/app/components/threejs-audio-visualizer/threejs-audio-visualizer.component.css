@@ -1,0 +1,80 @@
+@media (max-width: 576px) {
+  .chat-box {
+    max-height: 200px;
+  }
+}
+
+.chat-box {
+  border-radius: 15px;
+  padding: 10px;
+  overflow-y: auto; /* Habilitar scroll vertical */
+  overflow-x: hidden; /* Ocultar scroll horizontal */
+  font-size: 12px;
+}
+
+/* Mensajes del usuario */
+.bg-light {
+  background: #ffffff00 !important; /* Verde claro */
+  padding: 10px 15px;
+  word-wrap: break-word;
+  color: #ffffff; /* Texto verde oscuro */
+}
+
+/* Mensajes del asistente */
+.bg-primary {
+  background: #ffffff00 !important; /* Verde oscuro */
+  padding: 10px 15px;
+  color: #ffffff; /* Texto blanco */
+  word-wrap: break-word;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  position: relative;
+  width: 100%;
+  background-color: transparent; /* Fondo del contenedor */
+}
+
+canvas {
+  display: block;
+  background-color: transparent;
+  width: 200px !important;
+  height: 200px !important;
+}
+
+/* Estilos para el scroll en navegadores que soportan pseudoclases */
+.chat-box::-webkit-scrollbar {
+  width: 6px; /* Disminuir el tamaño de la barra de scroll */
+  background-color: transparent; /* Fondo transparente para el track */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 50px; /* Bordes completamente redondeados (circulares) */
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background-color: #444;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #666, #333); /* Gradiente de gris a negro */
+  border-radius: 50px; /* Bordes redondeados en el track */
+}
+
+
+.img-flotante {
+  position: fixed;
+  width: 60px;
+  bottom: 330px;
+  right: 5%;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.iluminado {
+  filter: drop-shadow(0 0 10px #00ff00); /* Efecto de iluminación verde */
+  transition: filter 0.3s ease-in-out;
+}

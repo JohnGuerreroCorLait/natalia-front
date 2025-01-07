@@ -1,0 +1,31 @@
+.chat-box {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 576px) {
+  .chat-box {
+    max-height: 200px;
+  }
+}
+
+/* Estilo para los mensajes */
+.bg-primary {
+  background-color: #464646 !important;
+}
+
+.bg-light {
+  background-color: #e9efe9 !important;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  position: relative;
+  width: 100%;
+}
+canvas {
+  display: block;
+}

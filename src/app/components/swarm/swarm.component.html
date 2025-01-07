@@ -1,0 +1,206 @@
+<nav class="navbar bg-dark border-bottom border-body">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <img
+        src="https://lait.com.co/wp-content/uploads/2024/06/cropped-Variaciones-12-192x192.png"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      <strong>
+        LAIT Technology <br />
+        Swarm</strong
+      >
+    </a>
+  </div>
+</nav>
+<div class="row mt-4">
+  <div class="col text-center">
+    <button *ngIf="ocultar" (click)="llamar()" class="btn btn-success mb-3">
+      <i class="fa-solid fa-phone-volume"></i> Llamar
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="container">
+      <div #container class="canvas-container">
+        <canvas class="canvasOne"></canvas>
+      </div>
+      <div class="row">
+        <div class="col text-center text-white">
+          <p>
+            <strong
+              ><div
+                class="spinner-grow text-success spinner-grow-sm"
+                role="status"
+              >
+                <span class="sr-only"></span>
+              </div>
+              Natalia - Agente Ventas</strong
+            >
+          </p>
+        </div>
+      </div>
+      <hr style="color: white" />
+      <!-- Historial de mensajes-->
+      <div
+        #chatBox
+        class="mt-3 mb-5 chat-box"
+        style="
+          max-height: 400px;
+          overflow-y: auto;
+          border: 1px solid #000000;
+          border-radius: 15px;
+          background: #000000;
+          padding: 15px;
+        "
+      >
+        <div
+          *ngFor="let message of messages"
+          class="mb-3 animate__animated animate__fadeIn"
+        >
+          <div [class]="message.sender === 'user' ? 'text-start' : 'text-end'">
+            <div
+              class="d-inline-block"
+              [class]="
+                message.sender === 'user'
+                  ? 'bg-light text-dark'
+                  : 'bg-primary text-white'
+              "
+            >
+              <!-- Mensaje del usuario -->
+              <p
+                *ngIf="message.sender === 'user'"
+                class="p-3 bg-light rounded"
+                style="
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <strong>Tú:</strong> {{ message.content }}
+              </p>
+
+              <!-- Mensaje del asistente con contenido HTML seguro y estilo diferente -->
+              <p
+                *ngIf="message.sender !== 'user'"
+                class="p-3 bg-primary text-white rounded"
+                style="
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+                [innerHTML]="message.formattedContent"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="container">
+      <div #container class="canvas-container">
+        <canvas class="canvasTwo"></canvas>
+      </div>
+      <div class="row">
+        <div class="col text-center text-white">
+          <p>
+            <strong
+              ><div
+                class="spinner-grow text-success spinner-grow-sm"
+                role="status"
+              >
+                <span class="sr-only"></span>
+              </div>
+              John - Agente Demostración</strong
+            >
+          </p>
+        </div>
+      </div>
+      <hr style="color: white" />
+      <!-- Historial de mensajes-->
+      <div
+        #chatBox
+        class="mt-3 mb-5 chat-box"
+        style="
+          max-height: 400px;
+          overflow-y: auto;
+          border: 1px solid #000000;
+          border-radius: 15px;
+          background: #000000;
+          padding: 15px;
+        "
+      >
+        <div
+          *ngFor="let message of messages"
+          class="mb-3 animate__animated animate__fadeIn"
+        >
+          <div [class]="message.sender === 'user' ? 'text-start' : 'text-end'">
+            <div
+              class="d-inline-block"
+              [class]="
+                message.sender === 'user'
+                  ? 'bg-light text-dark'
+                  : 'bg-primary text-white'
+              "
+            >
+              <!-- Mensaje del usuario -->
+              <p
+                *ngIf="message.sender === 'user'"
+                class="p-3 bg-light rounded"
+                style="
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+              >
+                <strong>Tú:</strong> {{ message.content }}
+              </p>
+
+              <!-- Mensaje del asistente con contenido HTML seguro y estilo diferente -->
+              <p
+                *ngIf="message.sender !== 'user'"
+                class="p-3 bg-primary text-white rounded"
+                style="
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                "
+                [innerHTML]="message.formattedContent"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4 text-center">
+  <div class="row">
+    <div class="col mb-4">
+      <button class="btn btn-primary" routerLink="/dialogflow">
+        Agente Avatar
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-4">
+      <button class="btn btn-primary me-2" routerLink="/agente">
+        Agente Servicio Externo
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-4">
+      <button class="btn btn-primary me-2" routerLink="/swarm">
+        Agentes Swarm
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary me-2" routerLink="/agente-ventas">
+        Agente Servicio Interno
+      </button>
+    </div>
+  </div>
+</div>
