@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { VisualizerComponent } from './components/threejs-audio-visualizer/threejs-audio-visualizer.component';
 import { DialogflowComponent } from './components/dialogflow/dialogflow.component';
 import { SwarmComponent } from './components/swarm/swarm.component';
+import { NataliaComponent } from './components/natalia/natalia.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SwarmComponent } from './components/swarm/swarm.component';
     AgenteComponent,
     VisualizerComponent,
     DialogflowComponent,
-    SwarmComponent
+    SwarmComponent,
+    NataliaComponent
   ],
   imports: [
     BrowserModule,

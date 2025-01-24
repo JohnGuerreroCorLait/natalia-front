@@ -1,5 +1,7 @@
 export const environment = {
   production: false,
+  agentId: '2BWnmwgv9qFFbbeugmBE',
+  apiKey: 'sk_6ea2f06c3bb205281f32f85f36caa1a9760bde87ffb1d336',
   firebase: {
     apiKey: 'AIzaSyCwqWU6IgDQEsgYJc_EQo1FZV5Em7Vnn1Q',
     authDomain: 'agente-lait.firebaseapp.com',

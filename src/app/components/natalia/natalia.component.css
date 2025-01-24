@@ -23,6 +23,8 @@
 }
 
 .chat-box {
+  border-radius: 15px;
+  padding: 10px;
   overflow-y: auto; /* Habilitar scroll vertical */
   overflow-x: hidden; /* Ocultar scroll horizontal */
   font-size: 12px;
@@ -56,8 +58,8 @@
 canvas {
   display: block;
   background-color: transparent;
-  width: 190px !important;
-  height: 190px !important;
+  width: 200px !important;
+  height: 200px !important;
 }
 
 /* Estilos para el scroll en navegadores que soportan pseudoclases */
@@ -84,53 +86,13 @@ canvas {
 .img-flotante {
   position: fixed;
   width: 60px;
-  bottom: 255px;
-  right: 8px;
+  bottom: 330px;
+  right: 5%;
   cursor: pointer;
   z-index: 9999;
 }
 
-.imagen-boton {
-  transition: all 0.3s ease-in-out;
-}
-
-.imagen-boton:hover {
-  filter: drop-shadow(0 0 10px #00ff00); /* Efecto de iluminación al pasar el mouse */
-}
-
-.boton-hover:hover circle {
-  stroke-dasharray: 100%; /* Cambia a un círculo completo */
-  stroke-dashoffset: 0;  /* Inicia la animación desde el inicio */
-  transition: stroke-dashoffset 0.9s ease-in-out;
-}
-
-.iluminado:hover {
-  filter: drop-shadow(0 0 5px #00ff00); /* Efecto de iluminación verde */
-  transition: filter 0.4s ease-in-out;
-}
-
-svg {
-  position: absolute;
-  top: 400px;
-  left: 960.499px;
-  transform: translate(-50%, -50%);
-  cursor: pointer
-}
-
-.circle {
-  fill: none; /* Sin relleno */
-  stroke: #00ff00; /* Color del borde */
-  stroke-width: 6; /* Ancho del borde */
-  stroke-dasharray: 314; /* Perímetro del círculo (2πr, r = 50px) */
-  stroke-dashoffset: 314; /* Inicia completamente vacío */
-  animation: draw 0.5s linear forwards; /* Animación de 2 segundos */
-  transform: rotate(-90deg); /* Rotación para comenzar desde 0 grados */
-  transform-origin: center; /* Fija el punto de rotación al centro */
-  cursor: pointer
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0; /* Completa el círculo */
-  }
+.iluminado {
+  filter: drop-shadow(0 0 10px #00ff00); /* Efecto de iluminación verde */
+  transition: filter 0.3s ease-in-out;
 }
